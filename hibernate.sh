@@ -1,4 +1,6 @@
-"""
+#! /bin/sh
+<<'COMMENT'
+
 Hibernate
 
 This Bash Script will hibernate your PC after specified time in minutes. 
@@ -25,11 +27,9 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
 @Date: 2013
 @Email: oquidave@gmail.com
 @Usage: hibernate mins
-"""
 
-#! /bin/sh
+COMMENT
 
-#! /bin/sh
 #sleep the pc after these mins
 
 #mins=30

@@ -1,4 +1,5 @@
-"""
+#! /bin/sh
+<<'COMMENT'
 Kill Process
 
 Bash Script to kill a process running on specific port. Yes, you'll need it to stop non-standard servers for instance django server, app engine server etc 
@@ -26,7 +27,8 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
 @Date: 2013
 @Email: oquidave@gmail.com
 @Usage: kill_process port 
-"""
+
+COMMENT
 
 #! /bin/sh
 
