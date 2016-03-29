@@ -27,6 +27,8 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
 @Date: 2013
 @Email: oquidave@gmail.com
 @Usage: kill_process port 
+@comments: you should make this script executable with `chmod +x script.sh` and run it with `./script.sh` or use bash script.sh 
+
 
 COMMENT
 
@@ -37,12 +39,13 @@ if [ $# -eq 0 ]; then
 	echo “Usage: $0 [port number]
 	exit
 else
-if [ $UID -ne 0 ]; then 
+if [ $EUID -ne 0 ]; then 
 	echo "please run this script as root"
 	exit
 fi
 	port="$1"
-	process_pid=`netstat -pant | grep "0 0.0.0.0:$port" | awk '{print $7}' | grep -o -P "\d+"`
+	#process_pid=`netstat -pant | grep "0 0.0.0.0:$port" | awk '{print $7}' | grep -o -P "\d+"`
+	process_pid=`lsof -i :$port | sed -n 2p | awk '{print $2}'`
 	echo "process id for process on port $port is: $process_pid" 
 	if [ $process_pid ]; then
 		kill -9 $process_pid >&2 /dev/null
